@@ -1,19 +1,6 @@
-version: 2.1
-parameters:
-  GHA_Event:
-    type: string
-    default: ""
-  GHA_Actor:
-    type: string
-    default: ""
-  GHA_Action:
-    type: string
-    default: ""
-  GHA_Meta:
-    type: string
-    default: ""
-
-jobs:
+#Python CircleCI 2.0 confirguration file
+  version: 2.1
+  jobs:
     build:
       docker:
         - image: circleci/python:3.7
@@ -28,6 +15,7 @@ jobs:
               pwd      
               python3 -m venv venv
               . venv/bin/activate
+              /home/circleci/project/venv/bin/python3 -m pip install --upgrade pip
               pip install -r myreq.txt
                   # Run coding convention software plus tester
         - run:
@@ -41,8 +29,3 @@ jobs:
             path: test-results
         - store_artifacts:
             path: test-results
-
-workflows:
-  push:
-    jobs:  
-      - build 
