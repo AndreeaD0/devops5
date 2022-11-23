@@ -44,7 +44,5 @@ jobs:
 
 workflows:
   push:
- #   when:
- #     equal: [ "push", << pipeline.parameters.GHA_Event >>]
     jobs:  
       - build 
