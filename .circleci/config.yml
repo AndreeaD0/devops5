@@ -12,7 +12,6 @@ parameters:
   GHA_Meta:
     type: string
     default: ""
-
 jobs:
     build:
       docker:
@@ -42,7 +41,6 @@ jobs:
             path: test-results
         - store_artifacts:
             path: test-results
-
 workflows:
   push:
     when:
